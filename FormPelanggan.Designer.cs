@@ -1,6 +1,6 @@
 ﻿namespace EZTailor
 {
-    partial class Form2
+    partial class FormPelanggan
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.txtNama = new System.Windows.Forms.TextBox();
             this.lblNama = new System.Windows.Forms.Label();
-            this.txtNoHp = new System.Windows.Forms.TextBox();
+            this.txtNoHP = new System.Windows.Forms.TextBox();
             this.lblNoHp = new System.Windows.Forms.Label();
             this.txtAlamat = new System.Windows.Forms.TextBox();
             this.lblAlamat = new System.Windows.Forms.Label();
@@ -57,12 +57,12 @@
             this.lblNama.TabIndex = 1;
             this.lblNama.Text = "Nama";
             // 
-            // txtNoHp
+            // txtNoHP
             // 
-            this.txtNoHp.Location = new System.Drawing.Point(180, 109);
-            this.txtNoHp.Name = "txtNoHp";
-            this.txtNoHp.Size = new System.Drawing.Size(257, 22);
-            this.txtNoHp.TabIndex = 2;
+            this.txtNoHP.Location = new System.Drawing.Point(180, 109);
+            this.txtNoHP.Name = "txtNoHP";
+            this.txtNoHP.Size = new System.Drawing.Size(257, 22);
+            this.txtNoHP.TabIndex = 2;
             // 
             // lblNoHp
             // 
@@ -127,7 +127,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(476, 115);
             this.dataGridView1.TabIndex = 9;
             // 
-            // Form2
+            // FormPelanggan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,11 +139,11 @@
             this.Controls.Add(this.lblAlamat);
             this.Controls.Add(this.txtAlamat);
             this.Controls.Add(this.lblNoHp);
-            this.Controls.Add(this.txtNoHp);
+            this.Controls.Add(this.txtNoHP);
             this.Controls.Add(this.lblNama);
             this.Controls.Add(this.txtNama);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "FormPelanggan";
+            this.Text = "FormPelanggan";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -155,7 +155,7 @@
 
         private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.Label lblNama;
-        private System.Windows.Forms.TextBox txtNoHp;
+        private System.Windows.Forms.TextBox txtNoHP;
         private System.Windows.Forms.Label lblNoHp;
         private System.Windows.Forms.TextBox txtAlamat;
         private System.Windows.Forms.Label lblAlamat;
