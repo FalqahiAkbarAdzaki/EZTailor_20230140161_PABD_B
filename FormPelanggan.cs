@@ -18,6 +18,8 @@ namespace EZTailor
         private readonly SqlConnection conn;
         private readonly string connectionString = "Data Source=LAPTOPAQA\\AQASAMA;Initial Catalog=TailorDB;Integrated Security=True";
 
+
+        int selectedId = 0;
         public FormPelanggan()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace EZTailor
         void TampilData()
         {
             SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT * FROM Pelanggan", conn);
+                "SELECT * FROM vw_Pelanggan", conn);
 
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -93,6 +95,9 @@ namespace EZTailor
         {
             if (e.RowIndex >= 0)
             {
+                selectedId = Convert.ToInt32(
+                    dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+
                 txtNama.Text =
                     dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
@@ -117,8 +122,7 @@ namespace EZTailor
                 cmd.Parameters.AddWithValue("@hp", txtNoHP.Text);
                 cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
 
-                cmd.Parameters.AddWithValue("@id",
-                    dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                cmd.Parameters.AddWithValue("@id", selectedId);
 
                 cmd.ExecuteNonQuery();
 
