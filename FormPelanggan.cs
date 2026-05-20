@@ -16,7 +16,7 @@ namespace EZTailor
     public partial class FormPelanggan: Form
     {
         private readonly SqlConnection conn;
-        private readonly string connectionString = "Data Source=LAPTOPAQA\\AQASAMA;Initial Catalog=DBAkademikADO;Integrated Security=True";
+        private readonly string connectionString = "Data Source=LAPTOPAQA\\AQASAMA;Initial Catalog=TailorDB;Integrated Security=True";
 
         public FormPelanggan()
         {
@@ -26,7 +26,7 @@ namespace EZTailor
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            TampilData();
         }
         void TampilData()
         {
@@ -40,22 +40,36 @@ namespace EZTailor
         }
         private void btnTambah_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            try
+            {
+                conn.Open();
 
-            SqlCommand cmd = new SqlCommand(
-                "INSERT INTO Pelanggan VALUES(@nama,@hp,@alamat)", conn);
+                SqlCommand cmd = new SqlCommand(
+                    "INSERT INTO Pelanggan(nama,no_hp,alamat) VALUES(@nama,@hp,@alamat)",
+                    conn);
 
-            cmd.Parameters.AddWithValue("@nama", txtNama.Text);
-            cmd.Parameters.AddWithValue("@hp", txtNoHP.Text);
-            cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
+                cmd.Parameters.AddWithValue("@nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@hp", txtNoHP.Text);
+                cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            conn.Close();
+                conn.Close();
 
-            MessageBox.Show("Data berhasil ditambahkan");
+                MessageBox.Show("Data berhasil ditambahkan");
 
-            TampilData();
+                TampilData();
+
+                txtNama.Clear();
+                txtNoHP.Clear();
+                txtAlamat.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+                conn.Close();
+            }
         }
         private void btnHapus_Click(object sender, EventArgs e)
         {

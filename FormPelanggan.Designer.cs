@@ -98,6 +98,7 @@
             this.btnTambah.TabIndex = 6;
             this.btnTambah.Text = "Tambah";
             this.btnTambah.UseVisualStyleBackColor = true;
+            this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
             // btnUpdate
             // 
@@ -107,6 +108,7 @@
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Edit";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnHapus
             // 
@@ -116,6 +118,7 @@
             this.btnHapus.TabIndex = 8;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
+            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
             // dataGridView1
             // 
