@@ -46,9 +46,9 @@ namespace EZTailor
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO Pelanggan(nama,no_hp,alamat) VALUES(@nama,@hp,@alamat)",
-                    conn);
+                SqlCommand cmd = new SqlCommand("sp_InsertPelanggan", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@nama", txtNama.Text);
                 cmd.Parameters.AddWithValue("@hp", txtNoHP.Text);
@@ -77,11 +77,11 @@ namespace EZTailor
         {
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand(
-                "DELETE FROM Pelanggan WHERE id_pelanggan=@id", conn);
+            SqlCommand cmd = new SqlCommand("sp_DeletePelanggan", conn);
 
-            cmd.Parameters.AddWithValue("@id",
-                dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@id", selectedId);
 
             cmd.ExecuteNonQuery();
 
@@ -114,15 +114,14 @@ namespace EZTailor
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand(
-                    "UPDATE Pelanggan SET nama=@nama, no_hp=@hp, alamat=@alamat WHERE id_pelanggan=@id",
-                    conn);
+                SqlCommand cmd = new SqlCommand("sp_UpdatePelanggan", conn);
 
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", selectedId);
                 cmd.Parameters.AddWithValue("@nama", txtNama.Text);
                 cmd.Parameters.AddWithValue("@hp", txtNoHP.Text);
                 cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
-
-                cmd.Parameters.AddWithValue("@id", selectedId);
 
                 cmd.ExecuteNonQuery();
 
