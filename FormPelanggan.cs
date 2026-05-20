@@ -89,40 +89,54 @@ namespace EZTailor
 
             TampilData();
         }
-        private void dataGridView1_CellClick(object sender,
-    DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNama.Text =
-                dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                txtNama.Text =
+                    dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            txtNoHP.Text =
-                dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                txtNoHP.Text =
+                    dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            txtAlamat.Text =
-                dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                txtAlamat.Text =
+                    dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            conn.Open();
+            try
+            {
+                conn.Open();
 
-            SqlCommand cmd = new SqlCommand(
-                "UPDATE Pelanggan SET nama=@nama,no_hp=@hp,alamat=@alamat WHERE id_pelanggan=@id",
-                conn);
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE Pelanggan SET nama=@nama, no_hp=@hp, alamat=@alamat WHERE id_pelanggan=@id",
+                    conn);
 
-            cmd.Parameters.AddWithValue("@nama", txtNama.Text);
-            cmd.Parameters.AddWithValue("@hp", txtNoHP.Text);
-            cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
+                cmd.Parameters.AddWithValue("@nama", txtNama.Text);
+                cmd.Parameters.AddWithValue("@hp", txtNoHP.Text);
+                cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
 
-            cmd.Parameters.AddWithValue("@id",
-                dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                cmd.Parameters.AddWithValue("@id",
+                    dataGridView1.CurrentRow.Cells[0].Value.ToString());
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            conn.Close();
+                conn.Close();
 
-            MessageBox.Show("Data berhasil diupdate");
+                MessageBox.Show("Data berhasil diupdate");
 
-            TampilData();
+                TampilData();
+
+                txtNama.Clear();
+                txtNoHP.Clear();
+                txtAlamat.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
         }
     }
 }
