@@ -219,6 +219,7 @@ namespace EZTailor
             txtCari.Clear();
 
 
+
             TampilData();
         }
     }
