@@ -217,7 +217,6 @@ namespace EZTailor
      EventArgs e)
         {
             txtCari.Clear();
-
             TampilData();
         }
     }
