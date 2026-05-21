@@ -196,7 +196,7 @@ namespace EZTailor
 
         }
 
-        private void btnCariVulnerable_Click( object sender,EventArgs e)
+        private void btnCariVulnerableClick( object sender,EventArgs e)
         {
             SqlDataAdapter da =
                 new SqlDataAdapter(
