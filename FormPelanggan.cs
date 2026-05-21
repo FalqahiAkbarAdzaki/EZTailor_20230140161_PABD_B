@@ -18,7 +18,7 @@ namespace EZTailor
         private readonly SqlConnection conn;
         private readonly string connectionString = "Data Source=LAPTOPAQA\\AQASAMA;Initial Catalog=TailorDB;Integrated Security=True";
 
-
+        BindingSource bs = new BindingSource();
         int selectedId = 0;
         public FormPelanggan()
         {
@@ -28,17 +28,23 @@ namespace EZTailor
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            bindingNavigator1.BindingSource = bs;
             TampilData();
         }
         void TampilData()
         {
-            SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT * FROM vw_Pelanggan", conn);
+            SqlDataAdapter da =
+                new SqlDataAdapter(
+                    "SELECT * FROM vw_Pelanggan",
+                    conn);
 
             DataTable dt = new DataTable();
+
             da.Fill(dt);
 
-            dataGridView1.DataSource = dt;
+            bs.DataSource = dt;
+
+            dataGridView1.DataSource = bs;
         }
         private void btnTambah_Click(object sender, EventArgs e)
         {
@@ -62,6 +68,7 @@ namespace EZTailor
 
                 TampilData();
 
+                txtId.Clear();
                 txtNama.Clear();
                 txtNoHP.Clear();
                 txtAlamat.Clear();
@@ -98,6 +105,9 @@ namespace EZTailor
                 selectedId = Convert.ToInt32(
                     dataGridView1.Rows[e.RowIndex].Cells[0].Value);
 
+                txtId.Text =
+                    dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
                 txtNama.Text =
                     dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
@@ -131,6 +141,7 @@ namespace EZTailor
 
                 TampilData();
 
+                txtId.Clear();
                 txtNama.Clear();
                 txtNoHP.Clear();
                 txtAlamat.Clear();
@@ -140,6 +151,65 @@ namespace EZTailor
                 MessageBox.Show(ex.Message);
                 conn.Close();
             }
+        }
+
+        private void lblNoHp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNama_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNama_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCari_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter da = new SqlDataAdapter(
+                "sp_SearchPelanggan", conn);
+
+            da.SelectCommand.CommandType =
+                CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.AddWithValue(
+                "@keyword", txtCari.Text);
+
+            DataTable dt = new DataTable();
+
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCari_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCariVulnerable_Click( object sender,EventArgs e)
+        {
+            SqlDataAdapter da =
+                new SqlDataAdapter(
+                "SELECT * FROM Pelanggan WHERE nama='"
+                + txtCari.Text + "'",
+                conn);
+
+            DataTable dt =
+                new DataTable();
+
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
         }
     }
 }
