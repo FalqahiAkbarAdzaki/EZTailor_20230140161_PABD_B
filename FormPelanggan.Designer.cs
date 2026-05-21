@@ -57,6 +57,7 @@
             this.lblID = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnCariVulnerable = new System.Windows.Forms.Button();
+            this.reset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -308,19 +309,32 @@
             // 
             // btnCariVulnerable
             // 
+            this.btnCariVulnerable.BackColor = System.Drawing.Color.Red;
             this.btnCariVulnerable.Location = new System.Drawing.Point(581, 233);
             this.btnCariVulnerable.Name = "btnCariVulnerable";
             this.btnCariVulnerable.Size = new System.Drawing.Size(75, 23);
             this.btnCariVulnerable.TabIndex = 15;
             this.btnCariVulnerable.Text = "Test";
-            this.btnCariVulnerable.UseVisualStyleBackColor = true;
+            this.btnCariVulnerable.UseVisualStyleBackColor = false;
             this.btnCariVulnerable.Click += new System.EventHandler(this.btnCariVulnerableClick);
+            // 
+            // reset
+            // 
+            this.reset.BackColor = System.Drawing.Color.Green;
+            this.reset.Location = new System.Drawing.Point(581, 276);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(75, 23);
+            this.reset.TabIndex = 16;
+            this.reset.Text = "Reset";
+            this.reset.UseVisualStyleBackColor = false;
+            this.reset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FormPelanggan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.reset);
             this.Controls.Add(this.btnCariVulnerable);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblID);
@@ -378,5 +392,6 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnCariVulnerable;
+        private System.Windows.Forms.Button reset;
     }
 }

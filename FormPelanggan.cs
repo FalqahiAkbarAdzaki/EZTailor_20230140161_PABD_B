@@ -211,5 +211,15 @@ namespace EZTailor
 
             dataGridView1.DataSource = dt;
         }
+
+        private void btnReset_Click(
+     object sender,
+     EventArgs e)
+        {
+            txtCari.Clear();
+
+
+            TampilData();
+        }
     }
 }
