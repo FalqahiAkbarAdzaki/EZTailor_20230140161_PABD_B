@@ -218,11 +218,6 @@ namespace EZTailor
         {
             txtCari.Clear();
 
-
-
-
-            18
-
             TampilData();
         }
     }
