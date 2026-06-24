@@ -16,7 +16,7 @@ namespace EZTailor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPelanggan());
+            Application.Run(new FormLogin());
         }
     }
 }
