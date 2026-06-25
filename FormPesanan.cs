@@ -386,5 +386,12 @@ namespace EZTailor
         {
 
         }
+
+        private void FormPesanan_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'tailorDBDataSet1.Pesanan' table. You can move, or remove it, as needed.
+            this.pesananTableAdapter.Fill(this.tailorDBDataSet1.Pesanan);
+
+        }
     }
 }

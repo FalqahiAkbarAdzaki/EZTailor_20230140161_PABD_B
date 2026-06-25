@@ -116,6 +116,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TailorDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TailorDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TailorDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TailorDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +160,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TailorDBDataSet.xsc">
+      <DependentUpon>TailorDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TailorDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TailorDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TailorDBDataSet.xss">
+      <DependentUpon>TailorDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TailorDBDataSet1.xsc">
+      <DependentUpon>TailorDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TailorDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TailorDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TailorDBDataSet1.xss">
+      <DependentUpon>TailorDBDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

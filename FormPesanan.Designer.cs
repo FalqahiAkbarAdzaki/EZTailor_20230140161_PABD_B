@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblJenisPakaian = new System.Windows.Forms.Label();
             this.clbJenisPakaian = new System.Windows.Forms.CheckedListBox();
             this.cbPelanggan = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,21 @@
             this.lblHarga = new System.Windows.Forms.Label();
             this.dtTanggal = new System.Windows.Forms.DateTimePicker();
             this.lblTanggal = new System.Windows.Forms.Label();
+            this.btnTambah = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.tailorDBDataSet1 = new EZTailor.TailorDBDataSet1();
+            this.pesananBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pesananTableAdapter = new EZTailor.TailorDBDataSet1TableAdapters.PesananTableAdapter();
+            this.idpesananDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idpelangganDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jenispakaianDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggalpesanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomorpesananDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tailorDBDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pesananBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblJenisPakaian
@@ -89,7 +104,16 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idpesananDataGridViewTextBoxColumn,
+            this.idpelangganDataGridViewTextBoxColumn,
+            this.jenispakaianDataGridViewTextBoxColumn,
+            this.tanggalpesanDataGridViewTextBoxColumn,
+            this.hargaDataGridViewTextBoxColumn,
+            this.nomorpesananDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.pesananBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(170, 288);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -110,7 +134,7 @@
             // 
             this.btnHapus.Location = new System.Drawing.Point(585, 117);
             this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(123, 26);
+            this.btnHapus.Size = new System.Drawing.Size(129, 26);
             this.btnHapus.TabIndex = 6;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = true;
@@ -149,11 +173,107 @@
             this.lblTanggal.TabIndex = 10;
             this.lblTanggal.Text = "Tanggal Pemesanan:";
             // 
+            // btnTambah
+            // 
+            this.btnTambah.Location = new System.Drawing.Point(585, 36);
+            this.btnTambah.Name = "btnTambah";
+            this.btnTambah.Size = new System.Drawing.Size(129, 23);
+            this.btnTambah.TabIndex = 11;
+            this.btnTambah.Text = "Tambah";
+            this.btnTambah.UseVisualStyleBackColor = true;
+            this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(585, 164);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(129, 23);
+            this.btnUpdate.TabIndex = 12;
+            this.btnUpdate.Text = "Ubah";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(585, 208);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(129, 23);
+            this.btnReport.TabIndex = 13;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // tailorDBDataSet1
+            // 
+            this.tailorDBDataSet1.DataSetName = "TailorDBDataSet1";
+            this.tailorDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pesananBindingSource
+            // 
+            this.pesananBindingSource.DataMember = "Pesanan";
+            this.pesananBindingSource.DataSource = this.tailorDBDataSet1;
+            // 
+            // pesananTableAdapter
+            // 
+            this.pesananTableAdapter.ClearBeforeFill = true;
+            // 
+            // idpesananDataGridViewTextBoxColumn
+            // 
+            this.idpesananDataGridViewTextBoxColumn.DataPropertyName = "id_pesanan";
+            this.idpesananDataGridViewTextBoxColumn.HeaderText = "id_pesanan";
+            this.idpesananDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idpesananDataGridViewTextBoxColumn.Name = "idpesananDataGridViewTextBoxColumn";
+            this.idpesananDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idpesananDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idpelangganDataGridViewTextBoxColumn
+            // 
+            this.idpelangganDataGridViewTextBoxColumn.DataPropertyName = "id_pelanggan";
+            this.idpelangganDataGridViewTextBoxColumn.HeaderText = "id_pelanggan";
+            this.idpelangganDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idpelangganDataGridViewTextBoxColumn.Name = "idpelangganDataGridViewTextBoxColumn";
+            this.idpelangganDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // jenispakaianDataGridViewTextBoxColumn
+            // 
+            this.jenispakaianDataGridViewTextBoxColumn.DataPropertyName = "jenis_pakaian";
+            this.jenispakaianDataGridViewTextBoxColumn.HeaderText = "jenis_pakaian";
+            this.jenispakaianDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.jenispakaianDataGridViewTextBoxColumn.Name = "jenispakaianDataGridViewTextBoxColumn";
+            this.jenispakaianDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // tanggalpesanDataGridViewTextBoxColumn
+            // 
+            this.tanggalpesanDataGridViewTextBoxColumn.DataPropertyName = "tanggal_pesan";
+            this.tanggalpesanDataGridViewTextBoxColumn.HeaderText = "tanggal_pesan";
+            this.tanggalpesanDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tanggalpesanDataGridViewTextBoxColumn.Name = "tanggalpesanDataGridViewTextBoxColumn";
+            this.tanggalpesanDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // hargaDataGridViewTextBoxColumn
+            // 
+            this.hargaDataGridViewTextBoxColumn.DataPropertyName = "harga";
+            this.hargaDataGridViewTextBoxColumn.HeaderText = "harga";
+            this.hargaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.hargaDataGridViewTextBoxColumn.Name = "hargaDataGridViewTextBoxColumn";
+            this.hargaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nomorpesananDataGridViewTextBoxColumn
+            // 
+            this.nomorpesananDataGridViewTextBoxColumn.DataPropertyName = "nomor_pesanan";
+            this.nomorpesananDataGridViewTextBoxColumn.HeaderText = "nomor_pesanan";
+            this.nomorpesananDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nomorpesananDataGridViewTextBoxColumn.Name = "nomorpesananDataGridViewTextBoxColumn";
+            this.nomorpesananDataGridViewTextBoxColumn.Width = 125;
+            // 
             // FormPesanan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReport);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnTambah);
             this.Controls.Add(this.lblTanggal);
             this.Controls.Add(this.dtTanggal);
             this.Controls.Add(this.lblHarga);
@@ -167,7 +287,11 @@
             this.Controls.Add(this.lblJenisPakaian);
             this.Name = "FormPesanan";
             this.Text = "FormPesanan";
+            this.Load += new System.EventHandler(this.FormPesanan_Load_1);
+            this.Click += new System.EventHandler(this.FormPesanan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tailorDBDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pesananBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +310,17 @@
         private System.Windows.Forms.Label lblHarga;
         private System.Windows.Forms.DateTimePicker dtTanggal;
         private System.Windows.Forms.Label lblTanggal;
+        private System.Windows.Forms.Button btnTambah;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnReport;
+        private TailorDBDataSet1 tailorDBDataSet1;
+        private System.Windows.Forms.BindingSource pesananBindingSource;
+        private TailorDBDataSet1TableAdapters.PesananTableAdapter pesananTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpesananDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpelangganDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jenispakaianDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggalpesanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomorpesananDataGridViewTextBoxColumn;
     }
 }
